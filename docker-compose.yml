@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment: 
+      APP_ENV: ${APP_ENV}
+      CONTAINER_ROLE: app
+    image: laravel-app
+    container_name: laravel-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - laravel
+    depends_on:
+      - db
+
+  webserver:
+    image: nginx:alpine
+    container_name: laravel-webserver
+    restart: unless-stopped
+    ports:
+      - "8001:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - laravel
+
+  db:
+    image: mysql:8.0
+    container_name: laravel-db
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - laravel
+  
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravel-queue
+    environment: 
+      APP_ENV: ${APP_ENV}
+      CONTAINER_ROLE: queue
+    container_name: laravel-queue
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - laravel
+    depends_on:
+      - db
+
+networks:
+  laravel:
+
+volumes:
+  dbdata:

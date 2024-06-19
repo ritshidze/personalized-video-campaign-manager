@@ -8,9 +8,10 @@ Intructions to run the app and how it works.
 - Docker version >= 26.1.4
 
 Download the zip file or clone the repository to your local machine.
-  - git clone https://github.com/ritshidze/personalized-video-campaign-manager.git
+ git clone https://github.com/ritshidze/personalized-video-campaign-manager.git
+ 
+Once the cloning is done cd into the project. You should now see the dockerfile and the docker-compose.yml file and other laravel app files and directories.
 
-  
 1. git clone https://github.com/ritshidze/listing-things.git
 
    - composer install

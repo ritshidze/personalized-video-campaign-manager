@@ -179,3 +179,4 @@ docker logs laravel-queue
 ## Additional Information
 
 We running the app at port 8001.
+# Please follow the api order to test this application ie. create a user, create cient,create, campaign and lastly add compaign user data. 

@@ -174,3 +174,8 @@ The system uses Laravel Queues to handle data storage asynchronously, ensuring e
 To process the jobs in the queue, hit the api/campaigns/{campaign_id}/data endpoint and run:
 ```bash
 docker logs laravel-queue
+```
+
+## Additional Information
+
+We running the app at port 8001.

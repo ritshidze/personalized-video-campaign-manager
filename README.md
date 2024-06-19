@@ -27,55 +27,27 @@ This project is a robust personalized video campaign manager specifically design
     cd personalized-video-campaign-manager
     ```
 
-2. **Create the Docker configuration**:
-    Ensure you have a `docker-compose.yml` file in the root of your project:
+2. **Docker configuration**:
+    Ensure you have a `docker-compose.yml` file in the root of your project.
 
-3. **Create a Dockerfile**:
-    Ensure you have a `Dockerfile` file in the root of your project:
+3. **Dockerfile**:
+    Ensure you have a `Dockerfile` file in the root of your project.
 
-4. **Start Docker containers**:
+4. **The docker/entrypoints.sh**:
+    Ensure you have a `docker/entrypoint.sh` file in the root of your project. This bash script with run all the necessory artisan commands for you, migrations, etc.
+
+5. **Build Docker containers**:
+    ```bash
+    docker-compose build
+    ```
+
+6. **Run Docker**:
     ```bash
     docker-compose up -d
     ```
-
-5. **Run migrations**:
-    ```bash
-    docker-compose exec app php artisan migrate
-    ```
-
-### Local Development Setup
-
-1. **Install dependencies**:
-    ```bash
-    composer install
-    npm install
-    ```
-
-2. **Create an environment file**:
-    ```bash
-    cp .env.example .env
-    ```
-
-3. **Generate an application key**:
-    ```bash
-    php artisan key:generate
-    ```
-
-4. **Run migrations**:
-    ```bash
-    php artisan migrate
-    ```
-
-5. **Build assets with Vite**:
-    ```bash
-    npm run build
-    ```
-
-6. **Start the local development server**:
-    ```bash
-    php artisan serve
-    ```
-
+7. **Open your browser and visit http://localhost:8001/**
+   Ensure that you see the laravel 11 welcme/landing page.
+    
 ## API Documentation
 
 ### Create a New Campaign

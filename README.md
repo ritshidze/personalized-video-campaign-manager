@@ -184,5 +184,5 @@ docker logs laravel-queue
 
 ## Additional Information
 
-Please make sure that port 8001 and 3307 are free or not used,we running laravel app at 8001 and mysql at 3307. 
+Please make sure that port 8001 and 3307 are free or not used,we running laravel webserver on 8001 and mysql on 3307. 
 Please follow the api order to test this application ie. create a user, create client,create, campaign and lastly add compaign user data. 

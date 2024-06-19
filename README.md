@@ -7,6 +7,8 @@ This project is a robust personalized video campaign manager specifically design
 - [Project Setup and Installation](#project-setup-and-installation)
   - [Docker Instructions](#docker-instructions)
 - [API Documentation](#api-documentation)
+  - [Create a New User](#create-a-new-user)
+  - [Create a New Client](#create-a-new-client)
   - [Create a New Campaign](#create-a-new-campaign)
   - [Add User Data to a Campaign](#add-user-data-to-a-campaign)
 - [Background Job System](#background-job-system)
@@ -50,6 +52,50 @@ This project is a robust personalized video campaign manager specifically design
 
 ## API Documentation
 
+### Create a New User
+
+- **Endpoint**: `POST /api/user/store`
+- **Request Body**:
+    ```json
+    {
+        "name":"John",
+        "email": "john@example.com",
+        "password": "hispassword",
+        "password_confirmation": "hispassword"
+    }
+    ```
+- **Response**:
+    ```json
+    {
+        "name": "John",
+        "email": "john@example.com",
+        "updated_at": "2024-06-19T06:50:00.000000Z",
+        "created_at": "2024-06-19T06:50:00.000000Z",
+        "id": 1
+    }
+    ```
+
+### Create a New Client
+
+- **Endpoint**: `POST /api/client/store`
+- **Request Body**:
+    ```json
+    {
+        "name": "Super Awesome Client",
+        "email": "superawesome@gmail.com"
+    }
+    ```
+- **Response**:
+    ```json
+    {
+        "name": "Super Awesome Client",
+        "email": "superawesome@gmail.com",
+        "updated_at": "2024-06-19T06:52:23.000000Z",
+        "created_at": "2024-06-19T06:52:23.000000Z",
+        "id": 1
+    }
+    ```
+
 ### Create a New Campaign
 
 - **Endpoint**: `POST /api/campaigns`
@@ -57,21 +103,19 @@ This project is a robust personalized video campaign manager specifically design
     ```json
     {
         "client_id": 1,
-        "name": "Spring Sale Campaign",
-        "start_date": "2024-06-01",
-        "end_date": "2024-06-30"
+        "name": "The Cool Campaign",
+        "start_date": "2024-06-20"
     }
     ```
 - **Response**:
     ```json
     {
-        "id": 1,
         "client_id": 1,
-        "name": "Spring Sale Campaign",
-        "start_date": "2024-06-01",
-        "end_date": "2024-06-30",
-        "created_at": "2024-06-18T12:34:56.000000Z",
-        "updated_at": "2024-06-18T12:34:56.000000Z"
+        "name": "Olympics Games",
+        "start_date": "2024-06-20",
+        "updated_at": "2024-06-19T06:56:07.000000Z",
+        "created_at": "2024-06-19T06:56:07.000000Z",
+        "id": 1
     }
     ```
 
@@ -83,16 +127,25 @@ This project is a robust personalized video campaign manager specifically design
     {
         "data": [
             {
-                "user_id": "user123",
-                "video_url": "https://example.com/video1.mp4",
+                "user_id": "1",
+                "video_url": "https://www.youtube.com/watch?v=tO01J-M3g0U",
                 "custom_fields": {
-                    "name": "John Doe",
-                    "email": "john@example.com"
+                  "test_field0": "test 123",
+                  "test_field2": "123 test"
                 }
             },
             {
-                "user_id": "user124",
-                "video_url": "https://example.com/video2.mp4"
+                "user_id": "1",
+                "video_url": "https://www.youtube.com/watch?v=7bOptq-NPJQ",
+                "custom_fields": {
+                  "test_field0": "Hellow 123",
+                  "test_field2": "Hellow world",
+                  "test_field3": "Hellow Test test"
+                }
+            },
+            {
+                "user_id": "1",
+                "video_url": "https://www.youtube.com/watch?v=EJr3uAQwGek"
             }
         ]
     }
@@ -100,7 +153,7 @@ This project is a robust personalized video campaign manager specifically design
 - **Response**:
     ```json
     {
-        "message": "Data added successfully"
+        "message": "Campaign user data added successfully"
     }
     ```
 

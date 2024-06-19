@@ -3,10 +3,14 @@
 Intructions to run the app and how it works.
  
 # Requirements:
-- PHP  8.3 
-- MySQL 8.0
-- Docker version 26.1.4 
+- PHP >=  8.3 
+- MySQL >= 8.0
+- Docker version >= 26.1.4
 
+Download the zip file or clone the repository to your local machine.
+  - git clone https://github.com/ritshidze/personalized-video-campaign-manager.git
+
+  
 1. git clone https://github.com/ritshidze/listing-things.git
 
    - composer install

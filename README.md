@@ -17,7 +17,6 @@ This project is a robust personalized video campaign manager specifically design
 ### Prerequisites
 
 - Docker and Docker Compose
-- Composer
 
 ### Docker Instructions
 
@@ -47,7 +46,8 @@ This project is a robust personalized video campaign manager specifically design
     ```
 7. **Open your browser and visit http://localhost:8001/**
    Ensure that you see the laravel 11 welcme/landing page.
-    
+
+
 ## API Documentation
 
 ### Create a New Campaign
@@ -111,13 +111,13 @@ The system uses Laravel Queues to handle data storage asynchronously, ensuring e
 ### Queue Configuration
 
 - **Queue Connection**: `database`
-- **Environment Configuration**: Update the `.env` file to set up the queue connection.
+- **Environment Configuration**: Update the `.env` file to set up the queue connection. NB already done for you by entrypoint.sh script.
     ```env
     QUEUE_CONNECTION=database
     ```
 
 ### Running the Queue Worker
 
-To process the jobs in the queue, run the following command:
+To process the jobs in the queue, hit the api/campaigns/{campaign_id}/data endpoint and run:
 ```bash
-php artisan queue:work
+docker logs laravel-queue

@@ -3,8 +3,9 @@
 Intructions to run the app and how it works.
  
 # Requirements:
-PHP  8.3
-MySQL 8.0
+- PHP  8.3 
+- MySQL 8.0
+- Docker version 26.1.4 
 
 1. git clone https://github.com/ritshidze/listing-things.git
 

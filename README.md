@@ -36,17 +36,23 @@ This project is a robust personalized video campaign manager specifically design
 
 4. **The docker/entrypoints.sh**:
     Ensure you have a `docker/entrypoint.sh` file in the root of your project. This bash script with run all the necessory artisan commands for you, migrations, etc.
-
-5. **Build Docker containers**:
+   
+5. **the .env file**:
+    Ensure you have a `.env file` file in the root of your project.
+    ```bash
+    cp .env.example .env
+    ```
+    
+7. **Build Docker containers**:
     ```bash
     docker-compose build
     ```
 
-6. **Run Docker**:
+8. **Run Docker**:
     ```bash
     docker-compose up -d
     ```
-7. **Open your browser and visit http://localhost:8001/**
+9. **Open your browser and visit http://localhost:8001/**
    Ensure that you see the laravel 11 welcme/landing page.
 
 
@@ -178,5 +184,5 @@ docker logs laravel-queue
 
 ## Additional Information
 
-We running the app at port 8001.
+Please make sure that port 8001 and 3307 are free or not used,we running laravel webserver on 8001 and mysql on 3307. 
 Please follow the api order to test this application ie. create a user, create client,create, campaign and lastly add compaign user data. 

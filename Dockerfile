@@ -34,7 +34,7 @@ COPY . /var/www/html
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
 # Set correct permissions for storage and cache directories
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Install application dependencies
 # RUN composer install --no-dev --optimize-autoloader

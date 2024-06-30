@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'composer install'
+                sh 'composer install --no-progress --no-interaction'
             }
         }
         stage('Run Tests') {

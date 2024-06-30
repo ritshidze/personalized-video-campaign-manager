@@ -68,7 +68,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.jenkins
-    image: jenkins/jenkins:lts
+    image: custom-jenkins
     container_name: jenkins
     restart: unless-stopped
     ports:
@@ -76,8 +76,6 @@ services:
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
-    networks:
-      - laravel
 
 networks:
   laravel:

@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'composer install --no-progress --no-interaction'
+                sh 'composer install --no-progress --no-interaction --ignore-platform-req=ext-dom --ignore-platform-req=ext-xml' 
             }
         }
         stage('Run Tests') {

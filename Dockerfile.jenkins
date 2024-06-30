@@ -1,4 +1,5 @@
 FROM jenkins/jenkins:lts
+FROM php:8.3-fpm
 
 USER root
 

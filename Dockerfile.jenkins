@@ -22,10 +22,15 @@ RUN curl -sSL https://packages.sury.org/php/README.txt | bash -x \
     php8.3-mbstring \
     php8.3-xml \
     php8.3-curl \
-    php8.3-zip
+    php8.3-zip \
+    php8.3-dom
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Set PHP configuration - enable xml and dom extensions
+RUN echo "extension=xml.so" > /etc/php/8.3/cli/conf.d/20-xml.ini \
+    && echo "extension=dom.so" > /etc/php/8.3/cli/conf.d/20-dom.ini
 
 # Copy the application files
 COPY . /var/www/html

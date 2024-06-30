@@ -7,10 +7,13 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     unzip \
+    lsb-release \
+    ca-certificates \
+    apt-transport-https \
     software-properties-common
 
 # Add the PHP repository
-RUN add-apt-repository ppa:ondrej/php -y
+RUN curl -sSL https://packages.sury.org/php/README.txt | bash -x
 
 # Install PHP 8.3 and required extensions
 RUN apt-get update && apt-get install -y \

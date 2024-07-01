@@ -41,4 +41,7 @@ WORKDIR /var/www/html
 # Run Composer update to ensure compatibility
 RUN composer update --no-interaction --prefer-dist --optimize-autoloader
 
+# Generate application key
+RUN php artisan key:generate
+
 USER jenkins

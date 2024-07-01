@@ -45,9 +45,6 @@ COPY . /var/www/html
 # Set working directory
 WORKDIR /var/www/html
 
-# Ensure Docker daemon socket permissions
-RUN chmod 666 /var/run/docker.sock
-
 # Run Composer update to ensure compatibility
 RUN composer update --no-interaction --prefer-dist --optimize-autoloader
 

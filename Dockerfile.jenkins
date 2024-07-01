@@ -39,6 +39,9 @@ RUN echo "extension=xml.so" > /etc/php/8.3/cli/conf.d/20-xml.ini \
 # Install Docker
 RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 
+# Ensure Docker daemon socket permissions
+RUN chmod 666 /var/run/docker.sock
+
 # Copy the application files
 COPY . /var/www/html
 

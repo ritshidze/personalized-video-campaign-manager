@@ -5,6 +5,10 @@ pipeline {
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
+    environment {
+        COMPOSER_HOME = "$WORKSPACE/.composer"
+        PATH = "$COMPOSER_HOME/vendor/bin:$PATH"
+    }
     stages {
         stage('Clone Repository') {
             steps {
@@ -13,7 +17,7 @@ pipeline {
         }
         stage('Install Composer') {
             steps {
-                sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer'
+                sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=$COMPOSER_HOME --filename=composer'
             }
         }
         // stage('Run Tests') {

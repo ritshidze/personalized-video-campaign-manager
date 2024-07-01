@@ -11,9 +11,9 @@ pipeline {
                 git 'https://github.com/ritshidze/personalized-video-campaign-manager.git'
             }
         }
-        stage('Install Dependencies') {
+        stage('Install Composer') {
             steps {
-                sh 'composer install --no-progress --no-interaction' 
+                sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer'
             }
         }
         // stage('Run Tests') {

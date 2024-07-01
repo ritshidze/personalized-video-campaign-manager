@@ -11,11 +11,11 @@ pipeline {
                 sh 'composer install --no-progress --no-interaction' 
             }
         }
-        stage('Run Tests') {
-            steps {
-                // sh 'php artisan test'
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         sh 'php artisan test'
+        //     }
+        // }
         stage('Build Docker Image') {
             steps {
                 sh 'docker-compose build'

@@ -28,8 +28,9 @@ RUN curl -sSL https://packages.sury.org/php/README.txt | bash -x \
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Add Jenkins user to Docker group
-RUN usermod -aG docker jenkins
+# Create Docker group and add Jenkins user
+RUN groupadd docker \
+    && usermod -aG docker jenkins
 
 # Set PHP configuration - enable xml and dom extensions
 RUN echo "extension=xml.so" > /etc/php/8.3/cli/conf.d/20-xml.ini \
